@@ -1,1 +1,113 @@
-// My JS will be in here 
+// My JS will be in here
+
+var kiosk = {
+  place: 'Pike Place Market',
+  minCus: 14,
+  maxCus: 55,
+  cupsPerCus: 1.2,
+  poundsPerCus: 3.7,
+
+  generate: function() {
+    return Math.random() * ((55 - 14) + 14) * 3.7;
+  }
+};
+
+var paragraphEl = document.createElement('p');
+paragraphEl.textContent = 'Todays estimated coffee needs for Pike Place are: ' + kiosk.generate(14, 55) + ' pounds.'
+document.body.appendChild(paragraphEl);
+
+var kiosk2 = {
+  place: 'Cap Hill',
+  minCus: 32,
+  maxCus: 48,
+  cupsPerCus: 3.2,
+  poundsPerCus: 0.4,
+
+  generate: function() {
+    return Math.random() * ((48 - 32) + 32) * 0.4;
+  }
+};
+
+var paragraphEl = document.createElement('p');
+paragraphEl.textContent = 'Todays estimated coffee needs for Cap Hill are: ' + kiosk2.generate(32, 48) + ' pounds.'
+document.body.appendChild(paragraphEl);
+
+var kiosk3 = {
+  place: 'Seattle Public Library',
+  minCus: 49,
+  maxCus: 75,
+  cupsPerCus: 2.6,
+  poundsPerCus: 0.2,
+
+  generate: function() {
+    return Math.random() * ((75 - 49) + 49) * 0.2;
+  }
+};
+
+var paragraphEl = document.createElement('p');
+paragraphEl.textContent = 'Todays estimated coffee needs for Seattle Public Library are: ' + kiosk3.generate(49, 75) + ' pounds.'
+document.body.appendChild(paragraphEl);
+
+var kiosk4 = {
+  place: 'South Lake Union',
+  minCus: 35,
+  maxCus: 88,
+  cupsPerCus: 1.3,
+  poundsPerCus: 3.7,
+
+  generate: function() {
+    return Math.random() * ((88 - 35) + 35) * 3.7;
+  }
+};
+
+var paragraphEl = document.createElement('p');
+paragraphEl.textContent = 'Todays estimated coffee needs for South Lake Union are: ' + kiosk4.generate(35, 88) + ' pounds.'
+document.body.appendChild(paragraphEl);
+
+var kiosk5 = {
+  place: 'SeaTac',
+  minCus: 68,
+  maxCus: 124,
+  cupsPerCus: 1.1,
+  poundsPerCus: 2.7,
+
+  generate: function() {
+    return Math.random() * ((124 - 68) + 68) * 2.7;
+  }
+};
+
+var paragraphEl = document.createElement('p');
+paragraphEl.textContent = 'Todays estimated coffee needs for SeaTac are: ' + kiosk5.generate(68, 124) + ' pounds.'
+document.body.appendChild(paragraphEl);
+
+var kiosk6 = {
+  place: 'Web Sales',
+  minCus: 3,
+  maxCus: 6,
+  cupsPerCus: 0,
+  poundsPerCus: 6.7,
+
+  generate: function() {
+    return Math.random() * ((6 - 3) + 3) * 6.7;
+  }
+};
+
+var paragraphEl = document.createElement('p');
+paragraphEl.textContent = 'Todays estimated coffee needs for Web Sales are: ' + kiosk6.generate(3, 6) + ' pounds.'
+document.body.appendChild(paragraphEl);
+
+
+// var duck = {
+//   material: 'rubber',
+//   color: 'yellow',
+//   squeaks: false,
+//   favoriteFoods: ['duckweed', 'peanut butter', 'children'],
+//
+//   says: function() {
+//     console.log('QUACK');
+//   }
+// };
+//
+// var paragraphEl = document.createElement('p')
+// paragraphEl.textContent = duck.favoriteFoods
+// document.body.appendChild(ParagraphEl)
