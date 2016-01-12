@@ -32,33 +32,6 @@ for (i = 0; i < hourCoffee.length; i++) {
   document.body.appendChild(paragraphEl);
 }
 
-
-// var paragraphEl2 = document.createElement('ul');
-// paragraphEl2.textContent = 'Todays estimated coffee needs for Pike Place at 7am are: ' + kiosk.generate(14, 55) + ' pounds.'
-// document.body.appendChild(paragraphEl2);
-//
-// var paragraphEl3 = document.createElement('ul');
-// paragraphEl3.textContent = 'Todays estimated coffee needs for Pike Place at 8am are: ' + kiosk.generate(14, 55) + ' pounds.'
-// document.body.appendChild(paragraphEl3);
-//
-// var paragraphEl4 = document.createElement('ul');
-// paragraphEl4.textContent = 'Todays estimated coffee needs for Pike Place at 9am are: ' + kiosk.generate(14, 55) + ' pounds.'
-// document.body.appendChild(paragraphEl4);
-//
-// var paragraphEl5 = document.createElement('ul');
-// paragraphEl5.textContent = 'Todays estimated coffee needs for Pike Place at 6am are: ' + kiosk.generate(14, 55) + ' pounds.'
-// document.body.appendChild(paragraphEl5);
-//
-// var paragraphEl6 = document.createElement('ul');
-// paragraphEl6.textContent = 'Todays estimated coffee needs for Pike Place at 6am are: ' + kiosk.generate(14, 55) + ' pounds.'
-// document.body.appendChild(paragraphEl6);
-//
-// var paragraphEl7 = document.createElement('ul');
-// paragraphEl7.textContent = 'Todays estimated coffee needs for Pike Place at 6am are: ' + kiosk.generate(14, 55) + ' pounds.'
-// document.body.appendChild(paragraphEl7);
-
-
-
 var kiosk2 = {
   place: 'Cap Hill',
   minCus: 32,
@@ -66,18 +39,28 @@ var kiosk2 = {
   cupsPerCus: 3.2,
   poundsPerCus: 0.4,
 
-  generate: function() {
-    return Math.random() * ((48 - 32) + 32) * 0.4;
-  }
-};
+    generateCus: function() {
+      return Math.floor(Math.random() * (kiosk2.maxCus - kiosk2.minCus + 1)) + kiosk2.minCus;
+    },
+
+    generatePounds: function() {
+      return kiosk2.generateCus() * kiosk2.poundsPerCus;
+    },
+
+    generateCups: function() {
+      return kiosk2.generateCus() * kiosk2.cupsPerCus;
+    }
+  };
 
 var headEl2 = document.createElement('h2');
 headEl2.textContent = 'Cap Hill data';
 document.body.appendChild(headEl2);
 
-var paragraphEl = document.createElement('ul');
-paragraphEl.textContent = 'Todays estimated coffee needs for Cap Hill are: ' + kiosk2.generate(32, 48) + ' pounds.'
-document.body.appendChild(paragraphEl);
+for (i = 0; i < hourCoffee.length; i++) {
+  var paragraphEl = document.createElement('ul');
+  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk2.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk2.generateCus() + ' customers and will need ' + kiosk2.generateCups() + ' cups.';
+  document.body.appendChild(paragraphEl);
+}
 
 var kiosk3 = {
   place: 'Seattle Public Library',
@@ -86,18 +69,28 @@ var kiosk3 = {
   cupsPerCus: 2.6,
   poundsPerCus: 0.2,
 
-  generate: function() {
-    return Math.random() * ((75 - 49) + 49) * 0.2;
-  }
-};
+    generateCus: function() {
+      return Math.floor(Math.random() * (kiosk3.maxCus - kiosk3.minCus + 1)) + kiosk3.minCus;
+    },
+
+    generatePounds: function() {
+      return kiosk3.generateCus() * kiosk3.poundsPerCus;
+    },
+
+    generateCups: function() {
+      return kiosk3.generateCus() * kiosk3.cupsPerCus;
+    }
+  };
 
 var headEl3 = document.createElement('h2');
 headEl3.textContent = 'Seattle Public Library data';
 document.body.appendChild(headEl3);
 
-var paragraphEl = document.createElement('ul');
-paragraphEl.textContent = 'Todays estimated coffee needs for Seattle Public Library are: ' + kiosk3.generate(49, 75) + ' pounds.'
-document.body.appendChild(paragraphEl);
+for (i = 0; i < hourCoffee.length; i++) {
+  var paragraphEl = document.createElement('ul');
+  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk3.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk3.generateCus() + ' customers and will need ' + kiosk3.generateCups() + ' cups.';
+  document.body.appendChild(paragraphEl);
+}
 
 var kiosk4 = {
   place: 'South Lake Union',
@@ -106,18 +99,28 @@ var kiosk4 = {
   cupsPerCus: 1.3,
   poundsPerCus: 3.7,
 
-  generate: function() {
-    return Math.random() * ((88 - 35) + 35) * 3.7;
-  }
-};
+    generateCus: function() {
+      return Math.floor(Math.random() * (kiosk4.maxCus - kiosk4.minCus + 1)) + kiosk4.minCus;
+    },
+
+    generatePounds: function() {
+      return kiosk4.generateCus() * kiosk4.poundsPerCus;
+    },
+
+    generateCups: function() {
+      return kiosk4.generateCus() * kiosk4.cupsPerCus;
+    }
+  };
 
 var headEl4 = document.createElement('h2');
 headEl4.textContent = 'South Lake Union data';
 document.body.appendChild(headEl4);
 
-var paragraphEl = document.createElement('ul');
-paragraphEl.textContent = 'Todays estimated coffee needs for South Lake Union are: ' + kiosk4.generate(35, 88) + ' pounds.'
-document.body.appendChild(paragraphEl);
+for (i = 0; i < hourCoffee.length; i++) {
+  var paragraphEl = document.createElement('ul');
+  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk4.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk4.generateCus() + ' customers and will need ' + kiosk4.generateCups() + ' cups.';
+  document.body.appendChild(paragraphEl);
+}
 
 var kiosk5 = {
   place: 'SeaTac',
@@ -126,18 +129,28 @@ var kiosk5 = {
   cupsPerCus: 1.1,
   poundsPerCus: 2.7,
 
-  generate: function() {
-    return Math.random() * ((124 - 68) + 68) * 2.7;
-  }
-};
+    generateCus: function() {
+      return Math.floor(Math.random() * (kiosk5.maxCus - kiosk5.minCus + 1)) + kiosk5.minCus;
+    },
+
+    generatePounds: function() {
+      return kiosk5.generateCus() * kiosk5.poundsPerCus;
+    },
+
+    generateCups: function() {
+      return kiosk5.generateCus() * kiosk5.cupsPerCus;
+    }
+  };
 
 var headEl5 = document.createElement('h2');
 headEl5.textContent = 'SeaTac data';
 document.body.appendChild(headEl5);
 
-var paragraphEl = document.createElement('ul');
-paragraphEl.textContent = 'Todays estimated coffee needs for SeaTac are: ' + kiosk5.generate(68, 124) + ' pounds.'
-document.body.appendChild(paragraphEl);
+for (i = 0; i < hourCoffee.length; i++) {
+  var paragraphEl = document.createElement('ul');
+  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk5.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk5.generateCus() + ' customers and will need ' + kiosk5.generateCups() + ' cups.';
+  document.body.appendChild(paragraphEl);
+}
 
 var kiosk6 = {
   place: 'Web Sales',
@@ -146,31 +159,25 @@ var kiosk6 = {
   cupsPerCus: 0,
   poundsPerCus: 6.7,
 
-  generate: function() {
-    return Math.random() * ((6 - 3) + 3) * 6.7;
-  }
-};
+    generateCus: function() {
+      return Math.floor(Math.random() * (kiosk6.maxCus - kiosk6.minCus + 1)) + kiosk6.minCus;
+    },
+
+    generatePounds: function() {
+      return kiosk6.generateCus() * kiosk6.poundsPerCus;
+    },
+
+    generateCups: function() {
+      return kiosk6.generateCus() * kiosk6.cupsPerCus;
+    }
+  };
 
 var headEl6 = document.createElement('h2');
 headEl6.textContent = 'Web Sales data';
 document.body.appendChild(headEl6);
 
-var paragraphEl = document.createElement('ul');
-paragraphEl.textContent = 'Todays estimated coffee needs for Web Sales are: ' + kiosk6.generate(3, 6) + ' pounds.'
-document.body.appendChild(paragraphEl);
-
-
-// var duck = {
-//   material: 'rubber',
-//   color: 'yellow',
-//   squeaks: false,
-//   favoriteFoods: ['duckweed', 'peanut butter', 'children'],
-//
-//   says: function() {
-//     console.log('QUACK');
-//   }
-// };
-//
-// var paragraphEl = document.createElement('p')
-// paragraphEl.textContent = duck.favoriteFoods
-// document.body.appendChild(ParagraphEl)
+for (i = 0; i < hourCoffee.length; i++) {
+  var paragraphEl = document.createElement('ul');
+  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk6.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk6.generateCus() + ' customers and will need ' + kiosk6.generateCups() + ' cups.';
+  document.body.appendChild(paragraphEl);
+}
