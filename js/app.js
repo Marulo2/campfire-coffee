@@ -8,15 +8,15 @@ var kiosk = {
   poundsPerCus: 3.7,
 
   generate: function() {
-    return Math.random() * ((55 - 14) + 14) * 3.7;
+    return Math.random() * ((kiosk.maxCus - kiosk.minCus) + kiosk.minCus) * kiosk.cupsPerCus;
   },
 
   generateCus: function() {
-    return Math.random() * (55 - 14) + 14;
+    return Math.random() * (kiosk.maxCus - kiosk.minCus) + kiosk.minCus;
   },
 
   generateCups: function() {
-    return Math.random() * ((55 - 14) + 14) * 1.2;
+    return Math.random() * ((kiosk.maxCus - kiosk.minCus) + kiosk.minCus) * kiosk.cupsPerCus;
   }
 };
 
@@ -28,7 +28,7 @@ var hourCoffee = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm:
 
 for (i = 0; i < hourCoffee.length; i++) {
   var paragraphEl = document.createElement('ul');
-  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk.generate(14, 55) + ' pounds.' + ' We\'ll have ' + kiosk.generateCus(14, 55) + ' customers and will need ' + kiosk.generateCups(14, 55) + ' cups.';
+  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk.generate() + ' pounds.' + ' We\'ll have ' + kiosk.generateCus() + ' customers and will need ' + kiosk.generateCups() + ' cups.';
   document.body.appendChild(paragraphEl);
 }
 
@@ -71,7 +71,11 @@ var kiosk2 = {
   }
 };
 
-var paragraphEl = document.createElement('p');
+var headEl2 = document.createElement('h2');
+headEl2.textContent = 'Cap Hill data';
+document.body.appendChild(headEl2);
+
+var paragraphEl = document.createElement('ul');
 paragraphEl.textContent = 'Todays estimated coffee needs for Cap Hill are: ' + kiosk2.generate(32, 48) + ' pounds.'
 document.body.appendChild(paragraphEl);
 
@@ -87,7 +91,11 @@ var kiosk3 = {
   }
 };
 
-var paragraphEl = document.createElement('p');
+var headEl3 = document.createElement('h2');
+headEl3.textContent = 'Seattle Public Library data';
+document.body.appendChild(headEl3);
+
+var paragraphEl = document.createElement('ul');
 paragraphEl.textContent = 'Todays estimated coffee needs for Seattle Public Library are: ' + kiosk3.generate(49, 75) + ' pounds.'
 document.body.appendChild(paragraphEl);
 
@@ -103,7 +111,11 @@ var kiosk4 = {
   }
 };
 
-var paragraphEl = document.createElement('p');
+var headEl4 = document.createElement('h2');
+headEl4.textContent = 'South Lake Union data';
+document.body.appendChild(headEl4);
+
+var paragraphEl = document.createElement('ul');
 paragraphEl.textContent = 'Todays estimated coffee needs for South Lake Union are: ' + kiosk4.generate(35, 88) + ' pounds.'
 document.body.appendChild(paragraphEl);
 
@@ -119,7 +131,11 @@ var kiosk5 = {
   }
 };
 
-var paragraphEl = document.createElement('p');
+var headEl5 = document.createElement('h2');
+headEl5.textContent = 'SeaTac data';
+document.body.appendChild(headEl5);
+
+var paragraphEl = document.createElement('ul');
 paragraphEl.textContent = 'Todays estimated coffee needs for SeaTac are: ' + kiosk5.generate(68, 124) + ' pounds.'
 document.body.appendChild(paragraphEl);
 
@@ -135,7 +151,11 @@ var kiosk6 = {
   }
 };
 
-var paragraphEl = document.createElement('p');
+var headEl6 = document.createElement('h2');
+headEl6.textContent = 'Web Sales data';
+document.body.appendChild(headEl6);
+
+var paragraphEl = document.createElement('ul');
 paragraphEl.textContent = 'Todays estimated coffee needs for Web Sales are: ' + kiosk6.generate(3, 6) + ' pounds.'
 document.body.appendChild(paragraphEl);
 
