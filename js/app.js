@@ -22,13 +22,13 @@ var kiosk = {
 
   generatePounds: function() {
     for (var i = 0; i < hourCoffee.length; i++) {
-      return this.hourlyCust[i] * this.poundsPerCus;
+      this.hourlyBeans.push(this.hourlyCust[i] * this.poundsPerCus);
     }
   },
 
   generateCups: function() {
     for (var i = 0; i < hourCoffee.length; i++) {
-      return this.hourlyCust[i] * this.cupsPerCus;
+      this.hourlyCups.push(this.hourlyCust[i] * this.cupsPerCus);
     }
   },
 
@@ -38,10 +38,12 @@ var kiosk = {
     document.body.appendChild(headEl);
 
     this.hourlyCus();
+    this.generateCups();
+    this.generatePounds();
 
     for (var i = 0; i < hourCoffee.length; i++) {
       var paragraphEl = document.createElement('ul');
-      paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk.hourlyCust[i] + ' customers and will need ' + kiosk.generateCups() + ' cups.';
+      paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk.hourlyBeans[i] + ' pounds.' + ' We\'ll have ' + kiosk.hourlyCust[i] + ' customers and will need ' + kiosk.hourlyCups[i] + ' cups.';
       document.body.appendChild(paragraphEl);
     }
   }
