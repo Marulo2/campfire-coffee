@@ -7,16 +7,16 @@ var kiosk = {
   cupsPerCus: 1.2,
   poundsPerCus: 3.7,
 
-  generate: function() {
-    return Math.random() * ((kiosk.maxCus - kiosk.minCus) + kiosk.minCus) * kiosk.cupsPerCus;
+  generateCus: function() {
+    return Math.floor(Math.random() * (kiosk.maxCus - kiosk.minCus + 1)) + kiosk.minCus;
   },
 
-  generateCus: function() {
-    return Math.random() * (kiosk.maxCus - kiosk.minCus) + kiosk.minCus;
+  generatePounds: function() {
+    return kiosk.generateCus() * kiosk.poundsPerCus;
   },
 
   generateCups: function() {
-    return Math.random() * ((kiosk.maxCus - kiosk.minCus) + kiosk.minCus) * kiosk.cupsPerCus;
+    return kiosk.generateCus() * kiosk.cupsPerCus;
   }
 };
 
@@ -28,7 +28,7 @@ var hourCoffee = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm:
 
 for (i = 0; i < hourCoffee.length; i++) {
   var paragraphEl = document.createElement('ul');
-  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk.generate() + ' pounds.' + ' We\'ll have ' + kiosk.generateCus() + ' customers and will need ' + kiosk.generateCups() + ' cups.';
+  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk.generateCus() + ' customers and will need ' + kiosk.generateCups() + ' cups.';
   document.body.appendChild(paragraphEl);
 }
 
