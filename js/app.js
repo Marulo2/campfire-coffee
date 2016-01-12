@@ -51,6 +51,11 @@ function campCoffee(place, minCus, maxCus, cupsPerCus, poundsPerCus, hourlyCust,
 };
 
 var ppm = new campCoffee('Pike Place Market', 14, 55, 1.2, 3.7, [], [], []);
+var capHill = new campCoffee('Capitol Hill', 32, 48, 3.2, 0.4, [], [], []);
+var SeaLibrary = new campCoffee('Seattle Public Library', 49, 75, 2.6, 0.2, [], [], []);
+var southLake = new campCoffee('South Lake Union', 35, 88, 1.3, 3.7, [], [], []);
+var seaTac = new campCoffee('SeaTac Airport', 68, 124, 1.1, 2.7, [], [], []);
+var web = new campCoffee('Website Sales', 3, 6, 0, 6.7, [], [], []);
 
 //
 // var kiosk = {
