@@ -9,12 +9,55 @@ var kiosk = {
 
   generate: function() {
     return Math.random() * ((55 - 14) + 14) * 3.7;
+  },
+
+  generateCus: function() {
+    return Math.random() * (55 - 14) + 14;
+  },
+
+  generateCups: function() {
+    return Math.random() * ((55 - 14) + 14) * 1.2;
   }
 };
 
-var paragraphEl = document.createElement('p');
-paragraphEl.textContent = 'Todays estimated coffee needs for Pike Place are: ' + kiosk.generate(14, 55) + ' pounds.'
-document.body.appendChild(paragraphEl);
+var headEl = document.createElement('h2');
+headEl.textContent = 'Pike Place Market data';
+document.body.appendChild(headEl);
+
+var hourCoffee = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+
+for (i = 0; i < hourCoffee.length; i++) {
+  var paragraphEl = document.createElement('ul');
+  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk.generate(14, 55) + ' pounds.' + ' We\'ll have ' + kiosk.generateCus(14, 55) + ' customers and will need ' + kiosk.generateCups(14, 55) + ' cups.';
+  document.body.appendChild(paragraphEl);
+}
+
+
+// var paragraphEl2 = document.createElement('ul');
+// paragraphEl2.textContent = 'Todays estimated coffee needs for Pike Place at 7am are: ' + kiosk.generate(14, 55) + ' pounds.'
+// document.body.appendChild(paragraphEl2);
+//
+// var paragraphEl3 = document.createElement('ul');
+// paragraphEl3.textContent = 'Todays estimated coffee needs for Pike Place at 8am are: ' + kiosk.generate(14, 55) + ' pounds.'
+// document.body.appendChild(paragraphEl3);
+//
+// var paragraphEl4 = document.createElement('ul');
+// paragraphEl4.textContent = 'Todays estimated coffee needs for Pike Place at 9am are: ' + kiosk.generate(14, 55) + ' pounds.'
+// document.body.appendChild(paragraphEl4);
+//
+// var paragraphEl5 = document.createElement('ul');
+// paragraphEl5.textContent = 'Todays estimated coffee needs for Pike Place at 6am are: ' + kiosk.generate(14, 55) + ' pounds.'
+// document.body.appendChild(paragraphEl5);
+//
+// var paragraphEl6 = document.createElement('ul');
+// paragraphEl6.textContent = 'Todays estimated coffee needs for Pike Place at 6am are: ' + kiosk.generate(14, 55) + ' pounds.'
+// document.body.appendChild(paragraphEl6);
+//
+// var paragraphEl7 = document.createElement('ul');
+// paragraphEl7.textContent = 'Todays estimated coffee needs for Pike Place at 6am are: ' + kiosk.generate(14, 55) + ' pounds.'
+// document.body.appendChild(paragraphEl7);
+
+
 
 var kiosk2 = {
   place: 'Cap Hill',
