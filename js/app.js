@@ -4,36 +4,35 @@
 
 var hourCoffee = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
 
-
-function campCoffee(place, minCus, maxCus, cupsPerCus, poundsPerCus, hourlyCust, hourlyCups, hourlyBeans) {
+function CampCoffee(place, minCus, maxCus, cupsPerCus, poundsPerCus) {
   this.place = place;
   this.minCus = minCus;
   this.maxCus = maxCus;
   this.cupsPerCus = cupsPerCus;
   this.poundsPerCus = poundsPerCus;
-  this.hourlyCust = hourlyCust;
-  this.hourlyCups = hourlyCups;
-  this.hourlyBeans = hourlyBeans;
+  this.hourlyCust = [];
+  this.hourlyCups = [];
+  this.hourlyBeans = [];
 
-  var hourlyCus = function() {
+  this.hourlyCus = function() {
     for (var i = 0; i < hourCoffee.length; i++) {
       this.hourlyCust.push(Math.floor(Math.random() * (this.maxCus - this.minCus + 1) + this.minCus));
     }
   };
 
-  var generatePounds = function() {
+  this.generatePounds = function() {
     for (var i = 0; i < hourCoffee.length; i++) {
       this.hourlyBeans.push(this.hourlyCust[i] * this.poundsPerCus);
     }
   };
 
-  var generateCups = function() {
+  this.generateCups = function() {
     for (var i = 0; i < hourCoffee.length; i++) {
       this.hourlyCups.push(this.hourlyCust[i] * this.cupsPerCus);
     }
   };
 
-  var coffeeRender = function() {
+  this.coffeeRender = function() {
     var headEl = document.createElement('h2');
     headEl.textContent = 'Pike Place Market data';
     document.body.appendChild(headEl);
@@ -50,12 +49,15 @@ function campCoffee(place, minCus, maxCus, cupsPerCus, poundsPerCus, hourlyCust,
   }
 };
 
-var ppm = new campCoffee('Pike Place Market', 14, 55, 1.2, 3.7, [], [], []);
-var capHill = new campCoffee('Capitol Hill', 32, 48, 3.2, 0.4, [], [], []);
-var SeaLibrary = new campCoffee('Seattle Public Library', 49, 75, 2.6, 0.2, [], [], []);
-var southLake = new campCoffee('South Lake Union', 35, 88, 1.3, 3.7, [], [], []);
-var seaTac = new campCoffee('SeaTac Airport', 68, 124, 1.1, 2.7, [], [], []);
-var web = new campCoffee('Website Sales', 3, 6, 0, 6.7, [], [], []);
+var ppm = new CampCoffee('Pike Place Market', 14, 55, 1.2, 3.7);
+  ppm.coffeeRender();
+
+
+var capHill = new CampCoffee('Capitol Hill', 32, 48, 3.2, 0.4);
+var SeaLibrary = new CampCoffee('Seattle Public Library', 49, 75, 2.6, 0.2);
+var southLake = new CampCoffee('South Lake Union', 35, 88, 1.3, 3.7);
+var seaTac = new CampCoffee('SeaTac Airport', 68, 124, 1.1, 2.7);
+var web = new CampCoffee('Website Sales', 3, 6, 0, 6.7);
 
 //
 // var kiosk = {
