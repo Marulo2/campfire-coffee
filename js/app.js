@@ -1,36 +1,57 @@
 // My JS will be in here
 
+'use strict';
+
+var hourCoffee = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+
 var kiosk = {
   place: 'Pike Place Market',
   minCus: 14,
   maxCus: 55,
   cupsPerCus: 1.2,
   poundsPerCus: 3.7,
+  hourlyCust: [],
+  hourlyCups: [],
+  hourlyBeans: [],
 
-  generateCus: function() {
-    return Math.floor(Math.random() * (kiosk.maxCus - kiosk.minCus + 1)) + kiosk.minCus;
+  hourlyCus: function() {
+    for (var i = 0; i < hourCoffee.length; i++) {
+      this.hourlyCust.push(Math.floor(Math.random() * (this.maxCus - this.minCus + 1) + this.minCus));
+    }
   },
 
   generatePounds: function() {
-    return kiosk.generateCus() * kiosk.poundsPerCus;
+    for (var i = 0; i < hourCoffee.length; i++) {
+      return this.hourlyCust[i] * this.poundsPerCus;
+    }
   },
 
   generateCups: function() {
-    return kiosk.generateCus() * kiosk.cupsPerCus;
+    for (var i = 0; i < hourCoffee.length; i++) {
+      return this.hourlyCust[i] * this.cupsPerCus;
+    }
+  },
+
+  coffeeRender: function() {
+    var headEl = document.createElement('h2');
+    headEl.textContent = 'Pike Place Market data';
+    document.body.appendChild(headEl);
+
+    this.hourlyCus();
+
+    for (var i = 0; i < hourCoffee.length; i++) {
+      var paragraphEl = document.createElement('ul');
+      paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk.hourlyCust[i] + ' customers and will need ' + kiosk.generateCups() + ' cups.';
+      document.body.appendChild(paragraphEl);
+    }
   }
 };
 
-var headEl = document.createElement('h2');
-headEl.textContent = 'Pike Place Market data';
-document.body.appendChild(headEl);
+kiosk.coffeeRender();
 
-var hourCoffee = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
 
-for (i = 0; i < hourCoffee.length; i++) {
-  var paragraphEl = document.createElement('ul');
-  paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk.generateCus() + ' customers and will need ' + kiosk.generateCups() + ' cups.';
-  document.body.appendChild(paragraphEl);
-}
+
+// Can you give the array a className inside the loop?
 
 var kiosk2 = {
   place: 'Cap Hill',
@@ -56,7 +77,7 @@ var headEl2 = document.createElement('h2');
 headEl2.textContent = 'Cap Hill data';
 document.body.appendChild(headEl2);
 
-for (i = 0; i < hourCoffee.length; i++) {
+for (var i = 0; i < hourCoffee.length; i++) {
   var paragraphEl = document.createElement('ul');
   paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk2.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk2.generateCus() + ' customers and will need ' + kiosk2.generateCups() + ' cups.';
   document.body.appendChild(paragraphEl);
@@ -86,7 +107,7 @@ var headEl3 = document.createElement('h2');
 headEl3.textContent = 'Seattle Public Library data';
 document.body.appendChild(headEl3);
 
-for (i = 0; i < hourCoffee.length; i++) {
+for (var i = 0; i < hourCoffee.length; i++) {
   var paragraphEl = document.createElement('ul');
   paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk3.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk3.generateCus() + ' customers and will need ' + kiosk3.generateCups() + ' cups.';
   document.body.appendChild(paragraphEl);
@@ -116,7 +137,7 @@ var headEl4 = document.createElement('h2');
 headEl4.textContent = 'South Lake Union data';
 document.body.appendChild(headEl4);
 
-for (i = 0; i < hourCoffee.length; i++) {
+for (var i = 0; i < hourCoffee.length; i++) {
   var paragraphEl = document.createElement('ul');
   paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk4.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk4.generateCus() + ' customers and will need ' + kiosk4.generateCups() + ' cups.';
   document.body.appendChild(paragraphEl);
@@ -146,7 +167,7 @@ var headEl5 = document.createElement('h2');
 headEl5.textContent = 'SeaTac data';
 document.body.appendChild(headEl5);
 
-for (i = 0; i < hourCoffee.length; i++) {
+for (var i = 0; i < hourCoffee.length; i++) {
   var paragraphEl = document.createElement('ul');
   paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk5.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk5.generateCus() + ' customers and will need ' + kiosk5.generateCups() + ' cups.';
   document.body.appendChild(paragraphEl);
@@ -176,7 +197,7 @@ var headEl6 = document.createElement('h2');
 headEl6.textContent = 'Web Sales data';
 document.body.appendChild(headEl6);
 
-for (i = 0; i < hourCoffee.length; i++) {
+for (var i = 0; i < hourCoffee.length; i++) {
   var paragraphEl = document.createElement('ul');
   paragraphEl.textContent = hourCoffee[i] + 'We will need ' + kiosk6.generatePounds() + ' pounds.' + ' We\'ll have ' + kiosk6.generateCus() + ' customers and will need ' + kiosk6.generateCups() + ' cups.';
   document.body.appendChild(paragraphEl);
