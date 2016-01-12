@@ -51,8 +51,6 @@ var kiosk = {
 
 kiosk.coffeeRender();
 
-
-
 // Can you give the array a className inside the loop?
 
 var kiosk2 = {
