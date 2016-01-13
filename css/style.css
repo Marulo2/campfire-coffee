@@ -24,6 +24,8 @@ ul {
   color: white;
 }
 
-#time {
-  
-}
+/*#time {
+  table-layout: fixed;
+  width: 500px;
+  height: 250px;
+}*/

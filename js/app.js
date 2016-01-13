@@ -53,8 +53,10 @@ CampCoffee.prototype.render = function() {
 
   var trEl2 = document.createElement('tr');
   var thEl2 = document.createElement('th');
-    thEl2.textContent = 'Pike Place Market';
+  for (var i = 0; i < places.length; i++) {
+    thEl2.textContent = places[i];
     trEl2.appendChild(thEl2);
+  }
 
     this.hourlyCus();
     this.generateCups();
@@ -95,20 +97,22 @@ CampCoffee.prototype.render = function() {
 var ppm = new CampCoffee('Pike Place Market', 14, 55, 1.2, 3.7);
   ppm.render();
 
-// var capHill = new CampCoffee('Capitol Hill', 32, 48, 3.2, 0.4);
-//   capHill.coffeeRender();
-//
-// var SeaLibrary = new CampCoffee('Seattle Public Library', 49, 75, 2.6, 0.2);
-//   SeaLibrary.coffeeRender();
-//
-// var southLake = new CampCoffee('South Lake Union', 35, 88, 1.3, 3.7);
-//   southLake.coffeeRender();
-//
-// var seaTac = new CampCoffee('SeaTac Airport', 68, 124, 1.1, 2.7);
-//   seaTac.coffeeRender();
-//
-// var web = new CampCoffee('Website Sales', 3, 6, 0, 6.7);
-//   web.coffeeRender();
+var capHill = new CampCoffee('Capitol Hill', 32, 48, 3.2, 0.4);
+  capHill.render();
+
+
+
+var SeaLibrary = new CampCoffee('Seattle Public Library', 49, 75, 2.6, 0.2);
+  SeaLibrary.render();
+
+var southLake = new CampCoffee('South Lake Union', 35, 88, 1.3, 3.7);
+  southLake.render();
+
+var seaTac = new CampCoffee('SeaTac Airport', 68, 124, 1.1, 2.7);
+  seaTac.render();
+
+var web = new CampCoffee('Website Sales', 3, 6, 0, 6.7);
+  web.render();
 //
 //   function table() {
 //     var sectEl = document.createElement('test');
