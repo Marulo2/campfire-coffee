@@ -42,22 +42,58 @@ CampCoffee.prototype.render = function() {
   var thEl = document.createElement('th');
     thEl.textContent = 'Time of Day';
     trEl.appendChild(thEl);
+    tblEl.appendChild(trEl);
+    // sectEl.appendChild(tblEl);
 
   for (var i = 0; i < hourCoffee.length; i++) {
     var tdEl = document.createElement('td');
     tdEl.textContent = hourCoffee[i];
     trEl.appendChild(tdEl);
   }
-  tblEl.appendChild(trEl);
-  sectEl.appendChild(tblEl);
 
-  var trEl2 = document.createElement('tr');
-  var thEl2 = document.createElement('th');
-  for (var i = 0; i < places.length; i++) {
-    thEl2.textContent = places[i];
+    var trEl2 = document.createElement('tr');
+    var thEl2 = document.createElement('th');
+    thEl2.textContent = this.place;
     trEl2.appendChild(thEl2);
-  }
+    tblEl.appendChild(trEl2);
+    sectEl.appendChild(tblEl);
 
+    // var trEl3 = document.createElement('tr');
+    // var thEl3 = document.createElement('th');
+    // thEl3.textContent = 'Capitol Hill';
+    // trEl3.appendChild(thEl3);
+    // tblEl.appendChild(trEl3);
+    // sectEl.appendChild(tblEl);
+    //
+    // var trEl4 = document.createElement('tr');
+    // var thEl4 = document.createElement('th');
+    // thEl4.textContent = 'Seattle Public Library';
+    // trEl4.appendChild(thEl4);
+    // tblEl.appendChild(trEl4);
+    // sectEl.appendChild(tblEl);
+    //
+    // var trEl5 = document.createElement('tr');
+    // var thEl5 = document.createElement('th');
+    // thEl5.textContent = 'South Lake Union';
+    // trEl5.appendChild(thEl5);
+    // tblEl.appendChild(trEl5);
+    // sectEl.appendChild(tblEl);
+    //
+    // var trEl6 = document.createElement('tr');
+    // var thEl6 = document.createElement('th');
+    // thEl6.textContent = 'SeaTac Airport';
+    // trEl6.appendChild(thEl6);
+    // tblEl.appendChild(trEl6);
+    // sectEl.appendChild(tblEl);
+    //
+    // var trEl7 = document.createElement('tr');
+    // var thEl7 = document.createElement('th');
+    // thEl7.textContent = 'Website Sales';
+    // trEl7.appendChild(thEl7);
+    // tblEl.appendChild(trEl7);
+    // sectEl.appendChild(tblEl);
+
+  //
     this.hourlyCus();
     this.generateCups();
     this.generatePounds();
@@ -67,8 +103,6 @@ CampCoffee.prototype.render = function() {
     tdEl.textContent = this.hourlyBeans[i];
     trEl2.appendChild(tdEl);
   }
-  tblEl.appendChild(trEl2);
-  sectEl.appendChild(tblEl);
 };
 
 
@@ -99,8 +133,6 @@ var ppm = new CampCoffee('Pike Place Market', 14, 55, 1.2, 3.7);
 
 var capHill = new CampCoffee('Capitol Hill', 32, 48, 3.2, 0.4);
   capHill.render();
-
-
 
 var SeaLibrary = new CampCoffee('Seattle Public Library', 49, 75, 2.6, 0.2);
   SeaLibrary.render();
