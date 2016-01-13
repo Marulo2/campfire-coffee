@@ -2,7 +2,9 @@
 
 'use strict';
 
-var hourCoffee = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+var places = ['Pike Place Market', 'Capitol Hill', 'Seattle Public Library', 'South Lake Union', 'SeaTac Airport', 'Website'];
+
+var hourCoffee = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12pm ', '1pm ', '2pm ', '3pm ', '4pm ', '5pm ', '6pm ', '7pm ', '8pm '];
 
 function CampCoffee(place, minCus, maxCus, cupsPerCus, poundsPerCus) {
   this.place = place;
@@ -13,51 +15,119 @@ function CampCoffee(place, minCus, maxCus, cupsPerCus, poundsPerCus) {
   this.hourlyCust = [];
   this.hourlyCups = [];
   this.hourlyBeans = [];
+};
 
-  this.hourlyCus = function() {
-    for (var i = 0; i < hourCoffee.length; i++) {
-      this.hourlyCust.push(Math.floor(Math.random() * (this.maxCus - this.minCus + 1) + this.minCus));
-    }
-  };
+CampCoffee.prototype.hourlyCus = function() {
+  for (var i = 0; i < hourCoffee.length; i++) {
+    this.hourlyCust.push(Math.floor(Math.random() * (this.maxCus - this.minCus + 1) + this.minCus));
+  }
+};
 
-  this.generatePounds = function() {
-    for (var i = 0; i < hourCoffee.length; i++) {
-      this.hourlyBeans.push(this.hourlyCust[i] * this.poundsPerCus);
-    }
-  };
+CampCoffee.prototype.generatePounds = function() {
+  for (var i = 0; i < hourCoffee.length; i++) {
+    this.hourlyBeans.push(this.hourlyCust[i] * this.poundsPerCus);
+  }
+};
 
-  this.generateCups = function() {
-    for (var i = 0; i < hourCoffee.length; i++) {
-      this.hourlyCups.push(this.hourlyCust[i] * this.cupsPerCus);
-    }
-  };
+CampCoffee.prototype.generateCups = function() {
+  for (var i = 0; i < hourCoffee.length; i++) {
+    this.hourlyCups.push(this.hourlyCust[i] * this.cupsPerCus);
+  }
+};
 
-  this.coffeeRender = function() {
-    var headEl = document.createElement('h2');
-    headEl.textContent = 'Pike Place Market data';
-    document.body.appendChild(headEl);
+CampCoffee.prototype.render = function() {
+  var sectEl = document.getElementById('time');
+  var tblEl = document.createElement('table');
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+    thEl.textContent = 'Time of Day';
+    trEl.appendChild(thEl);
+
+  for (var i = 0; i < hourCoffee.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = hourCoffee[i];
+    trEl.appendChild(tdEl);
+  }
+  tblEl.appendChild(trEl);
+  sectEl.appendChild(tblEl);
+
+  var trEl2 = document.createElement('tr');
+  var thEl2 = document.createElement('th');
+    thEl2.textContent = 'Pike Place Market';
+    trEl2.appendChild(thEl2);
 
     this.hourlyCus();
     this.generateCups();
     this.generatePounds();
 
-    for (var i = 0; i < hourCoffee.length; i++) {
-      var paragraphEl = document.createElement('ul');
-      paragraphEl.textContent = hourCoffee[i] + 'We will need ' + this.hourlyBeans[i] + ' pounds.' + ' We\'ll have ' + this.hourlyCust[i] + ' customers and will need ' + this.hourlyCups[i] + ' cups.';
-      document.body.appendChild(paragraphEl);
-    }
+  for (var i = 0; i < hourCoffee.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.hourlyBeans[i];
+    trEl2.appendChild(tdEl);
   }
+  tblEl.appendChild(trEl2);
+  sectEl.appendChild(tblEl);
 };
 
+
+
+// CampCoffee.prototype.coffeeRender = function() {
+//
+//   this.hourlyCus();
+//   this.generateCups();
+//   this.generatePounds();
+//
+//   for (var i = 0; i < places.length; i++) {
+//     var headEl = document.createElement('h2');
+//     headEl.textContent = places[i];
+//     document.body.appendChild(headEl);
+//
+//
+//     for (var i = 0; i < hourCoffee.length; i++) {
+//       var paragraphEl = document.createElement('ul');
+//       paragraphEl.textContent = hourCoffee[i] + 'We\'ll have ' + this.hourlyCust[i] + ' customers and will need ' + this.hourlyCups[i] + ' cups and ' + 'we will need ' + this.hourlyBeans[i] + ' pounds of coffee beans.';
+//       document.body.appendChild(paragraphEl);
+//     }
+//   }
+// };
+
+
 var ppm = new CampCoffee('Pike Place Market', 14, 55, 1.2, 3.7);
-  ppm.coffeeRender();
+  ppm.render();
 
-
-var capHill = new CampCoffee('Capitol Hill', 32, 48, 3.2, 0.4);
-var SeaLibrary = new CampCoffee('Seattle Public Library', 49, 75, 2.6, 0.2);
-var southLake = new CampCoffee('South Lake Union', 35, 88, 1.3, 3.7);
-var seaTac = new CampCoffee('SeaTac Airport', 68, 124, 1.1, 2.7);
-var web = new CampCoffee('Website Sales', 3, 6, 0, 6.7);
+// var capHill = new CampCoffee('Capitol Hill', 32, 48, 3.2, 0.4);
+//   capHill.coffeeRender();
+//
+// var SeaLibrary = new CampCoffee('Seattle Public Library', 49, 75, 2.6, 0.2);
+//   SeaLibrary.coffeeRender();
+//
+// var southLake = new CampCoffee('South Lake Union', 35, 88, 1.3, 3.7);
+//   southLake.coffeeRender();
+//
+// var seaTac = new CampCoffee('SeaTac Airport', 68, 124, 1.1, 2.7);
+//   seaTac.coffeeRender();
+//
+// var web = new CampCoffee('Website Sales', 3, 6, 0, 6.7);
+//   web.coffeeRender();
+//
+//   function table() {
+//     var sectEl = document.createElement('test');
+//     var tblEl = document.createElement('table')
+//     var trEl = document.createElement('tr');
+//     var thEl = document.createElement('th')
+//     thEl.textContent = 'Time of Day'
+//     trEl.appendChild(headerEl);
+//
+//     for (var i = 0; i < hourCoffee.length; i++) {
+//       var tdEl = document.createElement('td');
+//       tdEl.textContent = hourCoffee[i];
+//       trEl.body.appendChild(tdEl);
+//     }
+//     tblEl.body.appendChild(trEl);
+//     sectEl.body.appendChild(tblEl);
+//   };
+//
+//   table();
 
 //
 // var kiosk = {
