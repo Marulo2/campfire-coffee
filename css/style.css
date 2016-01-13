@@ -15,3 +15,17 @@ h1 {
 ul {
   border: black 1px;
 }
+
+.time {
+  font-size: 500px;
+}
+
+.pounds {
+  color: white;
+}
+
+/*#time {
+  table-layout: fixed;
+  width: 500px;
+  height: 250px;
+}*/
