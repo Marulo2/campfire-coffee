@@ -2,8 +2,6 @@
 
 'use strict';
 
-var places = ['Pike Place Market', 'Capitol Hill', 'Seattle Public Library', 'South Lake Union', 'SeaTac Airport', 'Website'];
-
 var hourCoffee = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12pm ', '1pm ', '2pm ', '3pm ', '4pm ', '5pm ', '6pm ', '7pm ', '8pm '];
 
 function CampCoffee(place, minCus, maxCus, cupsPerCus, poundsPerCus) {
@@ -43,7 +41,7 @@ CampCoffee.prototype.render = function() {
     thEl.textContent = 'Time of Day';
     trEl.appendChild(thEl);
     tblEl.appendChild(trEl);
-    // sectEl.appendChild(tblEl);
+    sectEl.appendChild(tblEl);
 
   for (var i = 0; i < hourCoffee.length; i++) {
     var tdEl = document.createElement('td');
@@ -56,51 +54,14 @@ CampCoffee.prototype.render = function() {
     thEl2.textContent = this.place;
     trEl2.appendChild(thEl2);
     tblEl.appendChild(trEl2);
-    sectEl.appendChild(tblEl);
 
-    // var trEl3 = document.createElement('tr');
-    // var thEl3 = document.createElement('th');
-    // thEl3.textContent = 'Capitol Hill';
-    // trEl3.appendChild(thEl3);
-    // tblEl.appendChild(trEl3);
-    // sectEl.appendChild(tblEl);
-    //
-    // var trEl4 = document.createElement('tr');
-    // var thEl4 = document.createElement('th');
-    // thEl4.textContent = 'Seattle Public Library';
-    // trEl4.appendChild(thEl4);
-    // tblEl.appendChild(trEl4);
-    // sectEl.appendChild(tblEl);
-    //
-    // var trEl5 = document.createElement('tr');
-    // var thEl5 = document.createElement('th');
-    // thEl5.textContent = 'South Lake Union';
-    // trEl5.appendChild(thEl5);
-    // tblEl.appendChild(trEl5);
-    // sectEl.appendChild(tblEl);
-    //
-    // var trEl6 = document.createElement('tr');
-    // var thEl6 = document.createElement('th');
-    // thEl6.textContent = 'SeaTac Airport';
-    // trEl6.appendChild(thEl6);
-    // tblEl.appendChild(trEl6);
-    // sectEl.appendChild(tblEl);
-    //
-    // var trEl7 = document.createElement('tr');
-    // var thEl7 = document.createElement('th');
-    // thEl7.textContent = 'Website Sales';
-    // trEl7.appendChild(thEl7);
-    // tblEl.appendChild(trEl7);
-    // sectEl.appendChild(tblEl);
-
-  //
     this.hourlyCus();
     this.generateCups();
     this.generatePounds();
 
   for (var i = 0; i < hourCoffee.length; i++) {
     var tdEl = document.createElement('td');
-    tdEl.textContent = this.hourlyBeans[i];
+    tdEl.textContent = this.hourlyBeans[i].toFixed(1);
     trEl2.appendChild(tdEl);
   }
 };

@@ -1,0 +1,47 @@
+/*My CSS will be in here*/
+
+.titleLogo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 0px 0px 0px;
+  width: 100%;
+  background-color: darkred;
+}
+
+body {
+  background-color: #FFFF66;
+  width: 80%;
+}
+
+h1 {
+  font-family: Arial;
+  font-size: 96px;
+  color: darkred;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+ul {
+  border: black 1px;
+}
+
+table {
+  border: 1px solid black;
+  height: 50px;
+  text-align: center;
+}
+
+tr {
+  width: 5000px;
+}
+
+td {
+  width: 5000px;
+}
+
+/*#time {
+  table-layout: fixed;
+  width: 500px;
+  height: 250px;
+}*/
