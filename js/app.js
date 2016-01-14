@@ -29,7 +29,7 @@ CampCoffee.prototype.generatePounds = function() {
 
 CampCoffee.prototype.generateCups = function() {
   for (var i = 0; i < hourCoffee.length; i++) {
-    this.hourlyCups.push(this.hourlyCust[i] * this.cupsPerCus);
+    this.hourlyCups.push((this.hourlyCust[i] * this.cupsPerCus) / 20);
   }
 };
 
