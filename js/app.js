@@ -1,4 +1,4 @@
-// My JS will be in here
+// My JS will be in here -- blah
 
 'use strict';
 
@@ -29,11 +29,12 @@ CampCoffee.prototype.generatePounds = function() {
 
 CampCoffee.prototype.generateCups = function() {
   for (var i = 0; i < hourCoffee.length; i++) {
-    this.hourlyCups.push(this.hourlyCust[i] * this.cupsPerCus);
+    this.hourlyCups.push((this.hourlyCust[i] * this.cupsPerCus) / 20);
   }
 };
 
-CampCoffee.prototype.render = function() {
+tableHead();
+function tableHead() {
   var sectEl = document.getElementById('time');
   var tblEl = document.createElement('table');
   var trEl = document.createElement('tr');
@@ -48,6 +49,22 @@ CampCoffee.prototype.render = function() {
     tdEl.textContent = hourCoffee[i];
     trEl.appendChild(tdEl);
   }
+}
+
+CampCoffee.prototype.render = function() {
+  var sectEl = document.getElementById('time');
+  var tblEl = document.createElement('table');
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+    trEl.appendChild(thEl);
+    tblEl.appendChild(trEl);
+    sectEl.appendChild(tblEl);
+
+  // for (var i = 0; i < hourCoffee.length; i++) {
+  //   var tdEl = document.createElement('td');
+  //   tdEl.textContent = hourCoffee[i];
+  //   trEl.appendChild(tdEl);
+  // }
 
     var trEl2 = document.createElement('tr');
     var thEl2 = document.createElement('th');
@@ -83,3 +100,62 @@ var seaTac = new CampCoffee('SeaTac Airport', 68, 124, 1.1, 2.7);
 
 var web = new CampCoffee('Website Sales', 3, 6, 0, 6.7);
   web.render();
+
+
+//Event listener
+
+var Store = function(newStoreLocation, text) {
+  this.newStoreLocation = newStoreLocation;
+  this.text = text;
+};
+
+Store.prototype.renderStore = function() {
+  var liEl = document.createElement('li');
+  liEl.innerHTML = this.newStoreLocation + ': ' + this.text;
+  return liEl;
+}
+
+var list = document.getElementById('list');
+var dataForm = document.getElementById('dataForm');
+var clearInput = document.getElementById('clearInput')
+var listData = [];
+
+var renderAllInput = function() {
+  list.innerHTML = '';
+  listData.forEach(function(lists) {
+    list.appendChild(lists.renderStore());
+  });
+};
+
+function handleCommentSubmit(event) {
+  console.log(event);
+  event.preventDefault();
+
+  if (!event.target.beanData.value || !event.target.store.value) {
+    return alert('Fields cannot be empty!');
+  }
+  var person = event.target.store.value;
+  var remark = event.target.beanData.value;
+
+  if (person === 'Marshall') {
+    remark = 'i really hope this works!';
+  }
+
+  var newStore = new Store(person, remark);
+
+  console.log('Input made by ' + event.target.store.value + ' at ' + Date());
+  event.target.store.value = null;
+  event.target.beanData.value = null;
+
+  listData.push(newStore);
+  renderAllInput();
+
+};
+
+dataForm.addEventListener('submit', handleCommentSubmit);
+
+clearInput.addEventListener('click', function() {
+  console.log('You just cleared the comments!');
+  list.innerHTML = '';
+  listData = [];
+});
