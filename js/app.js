@@ -33,7 +33,8 @@ CampCoffee.prototype.generateCups = function() {
   }
 };
 
-CampCoffee.prototype.render = function() {
+tableHead();
+function tableHead() {
   var sectEl = document.getElementById('time');
   var tblEl = document.createElement('table');
   var trEl = document.createElement('tr');
@@ -48,6 +49,22 @@ CampCoffee.prototype.render = function() {
     tdEl.textContent = hourCoffee[i];
     trEl.appendChild(tdEl);
   }
+}
+
+CampCoffee.prototype.render = function() {
+  var sectEl = document.getElementById('time');
+  var tblEl = document.createElement('table');
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+    trEl.appendChild(thEl);
+    tblEl.appendChild(trEl);
+    sectEl.appendChild(tblEl);
+
+  // for (var i = 0; i < hourCoffee.length; i++) {
+  //   var tdEl = document.createElement('td');
+  //   tdEl.textContent = hourCoffee[i];
+  //   trEl.appendChild(tdEl);
+  // }
 
     var trEl2 = document.createElement('tr');
     var thEl2 = document.createElement('th');

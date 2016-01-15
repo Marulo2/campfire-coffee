@@ -1,6 +1,6 @@
 /*My CSS will be in here*/
 
-.titleLogo {
+header {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -30,14 +30,6 @@ table {
   border: 1px solid black;
   height: 50px;
   text-align: center;
-}
-
-tr {
-  width: 5000px;
-}
-
-td {
-  width: 5000px;
 }
 
 /*#time {
